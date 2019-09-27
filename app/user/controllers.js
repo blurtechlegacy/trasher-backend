@@ -27,7 +27,7 @@ exports.login = (req, res) => {
       const payload = {
         id: user.id,
         username: user.username,
-        isOrg: user.isOrg,
+        role: user.role
       };
       const token = jwt.sign(payload, secret);
       repository
@@ -42,6 +42,7 @@ exports.login = (req, res) => {
 exports.register = (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  const address = req.body.address;
 
   if (!username) {
     return res.validationError({
@@ -69,6 +70,7 @@ exports.register = (req, res) => {
     {
       username,
       password,
+      address
     },
     err => {
       if (err) {

@@ -5,6 +5,8 @@ exports.saveLitterStorage = (data, saveCb) => {
   return litterStorage.save(saveCb);
 };
 
-exports.getLitterStorageByCity = data => LitterStorage.find({ place: { city: data} });
+exports.getLitterStorageForCity = data => LitterStorage.find({'place.city': data});
 
-exports.getLitterStorage = data => LitterStorage.find({ _id: data.id});
+exports.getLitterStorage = data => LitterStorage.find();
+
+exports.getLitterStorageById = data => LitterStorage.find({ _id: data.id});

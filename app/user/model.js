@@ -28,7 +28,9 @@ const definition = {
     },
     street: {
       type: String
-    }
+    },
+    latitude: Number,
+    longitude: Number
   },
   token: String,
 };

@@ -6,6 +6,8 @@ require('./model');
 
 const controller = require('./controllers');
 
-router.get('/city', authenticateMiddleware, controller.getLS);
+router.get('/', authenticateMiddleware, controller.getLS);
+
+router.post('/', authenticateMiddleware, controller.createLS);
 
 module.exports = router;
