@@ -71,7 +71,8 @@ exports.register = (req, res) => {
     {
       username,
       password,
-      address
+      address,
+      role
     },
     (err, data) => {
       if (err) {

@@ -16,6 +16,8 @@ exports.getLS = async (req, res) => {
   }
 };
 
+//TODO long and lat in object
+
 exports.createLS = (req, res) => {
   const data = {
     latitude: req.body.latitude,

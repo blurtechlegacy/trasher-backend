@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const definiton = {
+const definition = {
   client: {
     type: Schema.Types.ObjectId,
     ref: "User"
