@@ -7,14 +7,11 @@ const repository = require('./repository');
 exports.getLS = async (req, res) => {
   if (req.query.city) {
     data = req.query.city;
-    console.log("нахуй иди");
-    console.log(data);
     const lscity = await repository.getLitterStorageForCity(data);
     res.success(lscity)
   }
   else {
-    console.log("серьезно нахуй иди");
-    const lsc = await repository.getLitterStorage();
+    const lsc = await repository.getLitterStorageForCity(req.user.address.city);
     res.success(lsc);
   }
 };
