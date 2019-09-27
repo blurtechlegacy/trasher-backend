@@ -10,4 +10,6 @@ router.get('/', authenticateMiddleware, controller.getLS);
 
 router.post('/', authenticateMiddleware, controller.createLS);
 
+router.put('/:id/collect/', authenticateMiddleware, controller.updateCollectDate);
+
 module.exports = router;

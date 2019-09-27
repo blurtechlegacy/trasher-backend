@@ -72,11 +72,11 @@ exports.register = (req, res) => {
       password,
       address
     },
-    err => {
+    (err, cb, data) => {
       if (err) {
         return res.validationError(err);
       }
-      return res.success({ message: 'Successful created new user' });
+      return res.success({ message: 'Successful created new user', user: data });
     }
   );
 };

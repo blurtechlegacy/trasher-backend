@@ -35,4 +35,17 @@ exports.createLS = (req, res) => {
     }
     return res.success(doc);
   });
-}
+};
+
+//TODO допилить функцию (не работает save)
+exports.updateCollectDate = async (req, res) => {
+  console.log(req.params.id);
+  let collectDate = req.body.collectDate? req.body.collectDate: Date.now();
+  let litterStorage = await repository.getLitterStorageById(req.params.id);
+
+  console.log(litterStorage);
+  litterStorage = await repository.updateCollectTimeStamp(litterStorage, collectDate);
+  res.success(litterStorage);
+};
+
+//

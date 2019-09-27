@@ -16,7 +16,8 @@ const definition = {
   },
   role: {
     type: String,
-    enum: ['user', 'admin']
+    enum: ['user', 'admin'],
+    required: true
   },
   address: {
     city: {
