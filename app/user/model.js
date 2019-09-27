@@ -17,7 +17,8 @@ const definition = {
   role: {
     type: String,
     enum: ['user', 'admin'],
-    required: true
+    required: true,
+    default: 'user'
   },
   address: {
     city: {
