@@ -9,7 +9,7 @@ exports.tryWithJWT = (req, res) => {
   const payload = {
     id: req.user.id,
     username: req.user.username,
-    isOrg: req.user.isOrg,
+    role: req.user.role
   };
   res.success(payload);
 };
@@ -72,11 +72,21 @@ exports.register = (req, res) => {
       password,
       address
     },
-    (err, cb, data) => {
+    (err, data) => {
       if (err) {
         return res.validationError(err);
       }
-      return res.success({ message: 'Successful created new user', user: data });
+      let user = {
+        id: data._id,
+        username: data.username,
+        role: data.role
+      };
+      let token = jwt.sign(user, secret);
+      return res.success({
+        message: 'Successful created new user',
+        user: { ...user, address: data.address},
+        token: token
+      });
     }
   );
 };
