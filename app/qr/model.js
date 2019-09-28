@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const definition = {
+  id: Schema.ObjectId,
   version: {
     type: Number
   },
