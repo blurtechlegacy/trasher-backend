@@ -15,52 +15,14 @@ const definition = {
     type: Date,
     default: Date.now()
   },
-  types: {
-    1: {
-      bag: Number,
-      mass: Number
-    },
-    2: {
-      bag: Number,
-      mass: Number
-    },
-    3: {
-      bag: Number,
-      mass: Number
-    },
-    4: {
-      bag: Number,
-      mass: Number
-    },
-    5: {
-      bag: Number,
-      mass: Number
-    },
-    6: {
-      bag: Number,
-      mass: Number
-    },
-    7: {
-      bag: Number,
-      mass: Number
-    },
-    8: {
-      bag: Number,
-      mass: Number
-    },
-    9: {
-      bag: Number,
-      mass: Number
-    },
-    10: {
-      bag: Number,
-      mass: Number
-    },
-    11: {
-      bag: Number,
+  types: [
+    {
+      bagtype: Number,
+      bags: Number,
       mass: Number
     }
-  }
+  ]
+
 };
 
 const LitterSchema = new Schema(definition, {});
