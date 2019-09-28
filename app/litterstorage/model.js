@@ -3,13 +3,16 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const definition = {
-  latitude: {
-    type: Number,
-    required: true
-  },
-  longitude:{
-    type: Number,
-    required: true
+  title: String,
+  latlng: {
+    latitude: {
+      type: Number,
+      required: true
+    },
+    longitude: {
+      type: Number,
+      required: true
+    }
   },
   lastCollect: {
     type: Date,
@@ -21,8 +24,12 @@ const definition = {
     },
     region: {
       type: String
+    },
+    address: {
+      type: String
     }
-  }
+  },
+  containers: [Number]
 };
 
 const UserSchema = new Schema(definition, {});

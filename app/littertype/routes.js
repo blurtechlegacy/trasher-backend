@@ -6,8 +6,8 @@ require('./model');
 
 const controller = require('./controllers');
 
-router.post('/', authenticateMiddleware, controller.createLitter);
+router.get('/', authenticateMiddleware, controller.getTypes);
 
-router.get('/mine', authenticateMiddleware, controller.getLitterOfUser);
+router.get('/:id', authenticateMiddleware, controller.getType);
 
 module.exports = router;

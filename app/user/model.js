@@ -35,6 +35,11 @@ const definition = {
     longitude: Number,
   },
   token: String,
+  bags: {
+    type: Number,
+    default: 0,
+    min: 0
+  }
 };
 
 const options = {
