@@ -39,6 +39,11 @@ const definition = {
     type: Number,
     default: 0,
     min: 0
+  },
+  points: {
+    type: Number,
+    default: 0,
+    min: 0
   }
 };
 

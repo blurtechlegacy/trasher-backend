@@ -29,6 +29,7 @@ exports.login = (req, res) => {
         address: user.address,
         bags: user.bags,
         role: user.role,
+        points :user.points
       };
       const token = jwt.sign(payload, secret);
       repository
@@ -73,7 +74,7 @@ exports.register = (req, res) => {
       username,
       password,
       address,
-      role,
+      role
     },
     (err, data) => {
       if (err) {
@@ -85,6 +86,7 @@ exports.register = (req, res) => {
         role: data.role,
         address: data.address,
         bags: data.bags,
+        points: data.points
       };
       let token = jwt.sign(user, secret);
       return res.success({
