@@ -18,8 +18,10 @@ exports.getLS = async (req, res) => {
 
 exports.createLS = (req, res) => {
   const data = {
-    latitude: req.body.latitude,
-    longitude: req.body.longitude,
+    latlng: {
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
+    },
     lastCollect: Date.now(),
     place: {
       city: req.body.city,
