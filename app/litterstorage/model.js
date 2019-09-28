@@ -3,13 +3,15 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const definition = {
-  latitude: {
-    type: Number,
-    required: true
-  },
-  longitude:{
-    type: Number,
-    required: true
+  latlng: {
+    latitude: {
+      type: Number,
+      required: true
+    },
+    longitude: {
+      type: Number,
+      required: true
+    }
   },
   lastCollect: {
     type: Date,

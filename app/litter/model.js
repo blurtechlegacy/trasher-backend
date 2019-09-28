@@ -15,14 +15,35 @@ const definition = {
     type: Date,
     default: Date.now()
   },
-  bags: {
-    paper: Number,
-    glass: Number,
-    bio: Number,
-    plastic: Number,
-    nonrecycl: Number,
-    carton: Number,
-    danger: Number
+  types: {
+    paper: {
+      bag: Number,
+      mass: Number
+    },
+    glass: {
+      bag: Number,
+      mass: Number
+    },
+    bio: {
+      bag: Number,
+      mass: Number
+    },
+    plastic: {
+      bag: Number,
+      mass: Number
+    },
+    nonrecycle: {
+      bag: Number,
+      mass: Number
+    },
+    carton: {
+      bag: Number,
+      mass: Number
+    },
+    danger: {
+      bag: Number,
+      mass: Number
+    }
   },
   qr: {
     type: String
