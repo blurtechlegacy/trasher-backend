@@ -14,6 +14,12 @@ Table: 15
 `npm run lint` and `npm run lint-fix` - launch eslint  
 `npm run api-doc` - generate documentation from [apiary.apib](docs/apiary.apib) file (Swagger)
 
+# Contributors
+* **Alexandr Sidorenko** - *Lead Developer* - [MacOSO](https://github.com/MacOSO)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/batyshkaLenin.svg?style=social&label=Follow)](https://twitter.com/batyshkaLenin) 
+* **Alexandr Bulatov** - *Backend Developer* - [AlexBulatov](https://github.com/AlexBulatov)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/drunkdba.svg?style=social&label=Follow)](https://twitter.com/drunkdba) 
+
 ## Documentation
 
 API - [blur.tech/trasher-backend](https://blur.tech/trasher-backend/)
