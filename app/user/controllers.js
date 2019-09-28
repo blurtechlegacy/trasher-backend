@@ -26,7 +26,7 @@ exports.login = (req, res) => {
       const payload = {
         id: user.id,
         username: user.username,
-        role: req.user.role,
+        role: user.role,
       };
       const token = jwt.sign(payload, secret);
       repository
