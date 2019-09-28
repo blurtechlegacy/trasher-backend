@@ -18,7 +18,7 @@ const definition = {
     type: String,
     enum: ['user', 'admin'],
     required: true,
-    default: 'user'
+    default: 'user',
   },
   address: {
     city: {
@@ -29,10 +29,10 @@ const definition = {
       type: String,
     },
     street: {
-      type: String
+      type: String,
     },
     latitude: Number,
-    longitude: Number
+    longitude: Number,
   },
   token: String,
 };
@@ -46,11 +46,11 @@ const UserSchema = new Schema(definition, options);
 UserSchema.pre('save', function(next) {
   const user = this;
   if (this.isModified('password') || this.isNew) {
-    bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.genSalt(10, (err, salt) => {
       if (err) {
         return next(err);
       }
-      bcrypt.hash(user.password, salt, null, function(err, hash) {
+      bcrypt.hash(user.password, salt, null, (err, hash) => {
         if (err) {
           return next(err);
         }
@@ -63,7 +63,7 @@ UserSchema.pre('save', function(next) {
   }
 });
 
-UserSchema.methods.verifyPassword = function(password, cb) {
+UserSchema.methods.verifyPassword = (password, cb) => {
   return new Promise((resolve, reject) =>
     bcrypt.compare(password, this.password, (err, isMatch) => {
       if (err) {
