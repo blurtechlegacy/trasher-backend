@@ -1,7 +1,10 @@
 # Trasher
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/381438e5f7d4278fc6ad/maintainability)](https://codeclimate.com/github/blurtech/trasher-backend/maintainability) [![GitHub issues](https://img.shields.io/github/issues/blurtech/trasher-backend.svg)](https://github.com/blurtech/trasher-backend/issues) [![HitCount](http://hits.dwyl.io/blurtech/trasher-backend.svg)](http://hits.dwyl.io/blurtech/trasher-backend)  
-Server part of the application Trasher created whithin the framework of the final part of hackathon Digital Breakthrough
+Server part of the application Trasher created whithin the framework of the final part of hackathon Digital Breakthrough.  
+
+Team: Blurred Technologies  
+Table: 15  
 
 ## Getting Started
 
@@ -11,6 +14,12 @@ Server part of the application Trasher created whithin the framework of the fina
 `npm run lint` and `npm run lint-fix` - launch eslint  
 `npm run api-doc` - generate documentation from [apiary.apib](docs/apiary.apib) file (Swagger)
 
+# Contributors
+* **Alexandr Sidorenko** - *Lead Developer* - [MacOSO](https://github.com/MacOSO)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/batyshkaLenin.svg?style=social&label=Follow)](https://twitter.com/batyshkaLenin) 
+* **Alexandr Bulatov** - *Backend Developer* - [AlexBulatov](https://github.com/AlexBulatov)  
+[![Twitter Follow](https://img.shields.io/twitter/follow/drunkdba.svg?style=social&label=Follow)](https://twitter.com/drunkdba) 
+
 ## Documentation
 
 API - [blur.tech/trasher-backend](https://blur.tech/trasher-backend/)
@@ -19,5 +28,5 @@ API - [blur.tech/trasher-backend](https://blur.tech/trasher-backend/)
 
 Autodeploy to Heroku:
 
-- [Production](http://api.trasher.blur.tech/)
-- [Development](http://dev.api.trasher.blur.tech/)
+- [Production](https://api.trasher.blur.tech/)
+- [Development](https://dev.api.trasher.blur.tech/)
