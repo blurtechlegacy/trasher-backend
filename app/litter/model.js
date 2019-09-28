@@ -44,9 +44,6 @@ const definition = {
       bag: Number,
       mass: Number
     }
-  },
-  qr: {
-    type: String
   }
 };
 
