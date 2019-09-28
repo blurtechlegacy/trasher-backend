@@ -4,9 +4,6 @@ const { Schema } = mongoose;
 
 const definition = {
   id: Schema.ObjectId,
-  version: {
-    type: Number
-  },
   count: Number,
   tag: String,
   expired: {

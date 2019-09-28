@@ -1,6 +1,8 @@
 const qr = require('./model');
 const repository = require('./repository');
 
+const userRepository = require('../user/repository');
+
 const generateText = (qrObj) =>
   `{type:litterbag,count:${qrObj.count},v:${qrObj.version},id:${qrObj.id},tag:${qrobj.tag}}`;
 
@@ -15,7 +17,6 @@ exports.createQrBulk = async (req, res) => {
       count: param.count
     }));
   }
-  //console.log(dataList);
   await repository.saveCodes(dataList, (err, list) => {
     if (err) {
       return res.validationError(err);
@@ -24,12 +25,19 @@ exports.createQrBulk = async (req, res) => {
   });
 };
 
-exports.getLitterOfUser = async (req, res) => {
-  let litter = await repository.getLitterOfUser(req.user.id);
-  return res.success(litter);
-};
-
-exports.getLitterOfStorage = (req, res) => {
-
+exports.scan = async (req, res) => {
+  const data =  {
+    id: req.body.parcelId,
+    count: req.body.count,
+    tag: req.body.tag
+  };
+  let bags = await repository.getBags(data);
+  if (!bags) {
+    return res.notFound();
+  }
+  req.user.bags += bags.count;
+  await user.save();
+  await repository.expire(bags);
+  return res.success(req.user.bags);
 };
 

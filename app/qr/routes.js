@@ -9,4 +9,6 @@ const controller = require('./controllers');
 
 router.post('/', authenticateMiddlewareAdmin, controller.createQrBulk);
 
+router.post('/scan', authenticateMiddleware, controller.scan);
+
 module.exports = router;

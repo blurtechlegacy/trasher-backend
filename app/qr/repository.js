@@ -1,13 +1,11 @@
 const qr = require('./model');
 
-exports.createLitter = (data, saveCb) => {
-  const litter = new Litter(data);
-  return litter.save(saveCb);
+exports.getBags = (data) => qr.find({_id: data.id, count: data.count, expired: false});
+
+exports.expite = (obj) => {
+  obj.expired = true;
+  obj.save();
 };
-
-exports.getLitterOfUser = (user) => Litter.find({client: user}).populate("client").populate("storage");
-
-exports.getLitterOfLs = (id) => Litter.find({id: id});
 
 exports.saveCodes = (arr, saveCb) => {
   qr.create(arr, saveCb);
