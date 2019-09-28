@@ -22,5 +22,5 @@ API - [blur.tech/trasher-backend](https://blur.tech/trasher-backend/)
 
 Autodeploy to Heroku:
 
-- [Production](http://api.trasher.blur.tech/)
-- [Development](http://dev.api.trasher.blur.tech/)
+- [Production](https://api.trasher.blur.tech/)
+- [Development](https://dev.api.trasher.blur.tech/)
