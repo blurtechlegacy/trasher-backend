@@ -5,7 +5,6 @@ const { secret } = require('../../config/config');
 const repository = require('./repository');
 
 exports.tryWithJWT = (req, res) => {
-  console.log(req.user);
   const payload = {
     id: req.user.id,
     username: req.user.username,
@@ -44,6 +43,7 @@ exports.register = (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   const address = req.body.address;
+  const role = req.body.role;
 
   if (!username) {
     return res.validationError({
