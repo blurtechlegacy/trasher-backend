@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const definition = {
+  title: String,
   latlng: {
     latitude: {
       type: Number,
@@ -23,8 +24,12 @@ const definition = {
     },
     region: {
       type: String
+    },
+    address: {
+      type: String
     }
-  }
+  },
+  containers: [Number]
 };
 
 const UserSchema = new Schema(definition, {});

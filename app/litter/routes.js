@@ -6,3 +6,6 @@ require('./model');
 
 const controller = require('./controllers');
 
+router.post('/', authenticateMiddleware, controller.createLitter);
+
+module.exports = router;

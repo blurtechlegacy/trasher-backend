@@ -8,10 +8,14 @@ exports.createLitter = (req, res) => {
     client: req.user.id,
     storage: req.body.storage,
     throwDate: Date.now(),
-    type: {
-
+    types: req.body.types
+  };
+  repository.createLitter(data, (err, doc) => {
+    if (err) {
+      return res.validationError(err);
     }
-  }
+    return res.success(doc);
+  });
 };
 
 exports.getLitterOfUser = (req, res) => {
