@@ -18,8 +18,9 @@ exports.createLitter = (req, res) => {
   });
 };
 
-exports.getLitterOfUser = (req, res) => {
-
+exports.getLitterOfUser = async (req, res) => {
+  let litter = await repository.getLitterOfUser(req.user.id);
+  return res.success(litter);
 };
 
 exports.getLitterOfStorage = (req, res) => {

@@ -5,6 +5,6 @@ exports.createLitter = (data, saveCb) => {
   return litter.save(saveCb);
 };
 
-exports.getLitterOfUser = (user) => Litter.find({client: user});
+exports.getLitterOfUser = (user) => Litter.find({client: user}).populate("client").populate("storage");
 
 exports.getLitterOfLs = (litterStorage) => Litter.find({storage: litterStorage});
