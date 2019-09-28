@@ -8,7 +8,7 @@ exports.tryWithJWT = (req, res) => {
   const payload = {
     id: req.user.id,
     username: req.user.username,
-    role: req.user.role
+    role: req.user.role,
   };
   res.success(payload);
 };
@@ -26,8 +26,7 @@ exports.login = (req, res) => {
       const payload = {
         id: user.id,
         username: user.username,
-        role: user.role,
-
+        role: req.user.role,
       };
       const token = jwt.sign(payload, secret);
       repository
@@ -72,7 +71,7 @@ exports.register = (req, res) => {
       username,
       password,
       address,
-      role
+      role,
     },
     (err, data) => {
       if (err) {
@@ -81,13 +80,13 @@ exports.register = (req, res) => {
       let user = {
         id: data._id,
         username: data.username,
-        role: data.role
+        role: data.role,
       };
       let token = jwt.sign(user, secret);
       return res.success({
         message: 'Successful created new user',
-        user: { ...user, address: data.address},
-        token: token
+        user: { ...user, address: data.address },
+        token: token,
       });
     }
   );
