@@ -27,4 +27,4 @@ const definition = {
 
 const UserSchema = new Schema(definition, {});
 
-module.exports = mongoose.model('Litter', UserSchema, "Litter");
+module.exports = mongoose.model('LitterStorage', UserSchema, "LitterStorages");

@@ -5,11 +5,10 @@ const { secret } = require('../../config/config');
 const repository = require('./repository');
 
 exports.tryWithJWT = (req, res) => {
-  console.log(req.user);
   const payload = {
     id: req.user.id,
     username: req.user.username,
-    isOrg: req.user.isOrg,
+    role: req.user.role,
   };
   res.success(payload);
 };
@@ -27,7 +26,7 @@ exports.login = (req, res) => {
       const payload = {
         id: user.id,
         username: user.username,
-        isOrg: user.isOrg,
+        role: user.role,
       };
       const token = jwt.sign(payload, secret);
       repository
@@ -42,6 +41,8 @@ exports.login = (req, res) => {
 exports.register = (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
+  const address = req.body.address;
+  const role = req.body.role;
 
   if (!username) {
     return res.validationError({
@@ -69,12 +70,24 @@ exports.register = (req, res) => {
     {
       username,
       password,
+      address,
+      role,
     },
-    err => {
+    (err, data) => {
       if (err) {
         return res.validationError(err);
       }
-      return res.success({ message: 'Successful created new user' });
+      let user = {
+        id: data._id,
+        username: data.username,
+        role: data.role,
+      };
+      let token = jwt.sign(user, secret);
+      return res.success({
+        message: 'Successful created new user',
+        user: { ...user, address: data.address },
+        token: token,
+      });
     }
   );
 };

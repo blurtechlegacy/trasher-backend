@@ -14,17 +14,25 @@ const definition = {
     type: String,
     required: [true, 'Password required'],
   },
-  experience: {
-    currentexp: {
-      type: Number,
-      required: true,
-      default: 0,
+  role: {
+    type: String,
+    enum: ['user', 'admin'],
+    required: true,
+    default: 'user',
+  },
+  address: {
+    city: {
+      type: String,
+      required: [true, 'City required'],
     },
-    level: {
-      type: Number,
-      required: true,
-      default: 1,
+    region: {
+      type: String,
     },
+    street: {
+      type: String,
+    },
+    latitude: Number,
+    longitude: Number,
   },
   token: String,
 };

@@ -17,5 +17,9 @@ module.exports = app => {
   if (app) {
     app.set('mongoose', mongoose);
   }
-  return mongoose.connect(config.mongoUrl);
+  return mongoose.connect(config.mongoUrl, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useCreateIndex: true,
+  });
 };

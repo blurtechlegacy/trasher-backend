@@ -5,4 +5,15 @@ exports.saveLitterStorage = (data, saveCb) => {
   return litterStorage.save(saveCb);
 };
 
-exports.getLitterByCity = data => LitterStorage.find({ place: { city: data} });
+exports.getLitterStorageForCity = data => LitterStorage.find({'place.city': data});
+
+exports.getLitterStorage = () => LitterStorage.find();
+
+exports.getLitterStorageById = data => LitterStorage.find({ id: data.id});
+
+exports.updateCollectTimeStamp = (obj, data, saveCb) => {
+  obj.lastCollect = data;
+  return obj.save(saveCb);
+};
+
+exports.deleteLitterStorage = ls => ls.remove();
