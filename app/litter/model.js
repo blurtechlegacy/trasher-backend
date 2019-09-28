@@ -60,6 +60,17 @@ const definition = {
       bag: Number,
       mass: Number
     }
+  bags: {
+    paper: Number,
+    glass: Number,
+    bio: Number,
+    plastic: Number,
+    nonrecycl: Number,
+    carton: Number,
+    danger: Number
+  },
+  qr: {
+    type: String
   }
 };
 
