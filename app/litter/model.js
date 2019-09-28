@@ -16,31 +16,47 @@ const definition = {
     default: Date.now()
   },
   types: {
-    paper: {
+    1: {
       bag: Number,
       mass: Number
     },
-    glass: {
+    2: {
       bag: Number,
       mass: Number
     },
-    bio: {
+    3: {
       bag: Number,
       mass: Number
     },
-    plastic: {
+    4: {
       bag: Number,
       mass: Number
     },
-    nonrecycle: {
+    5: {
       bag: Number,
       mass: Number
     },
-    carton: {
+    6: {
       bag: Number,
       mass: Number
     },
-    danger: {
+    7: {
+      bag: Number,
+      mass: Number
+    },
+    8: {
+      bag: Number,
+      mass: Number
+    },
+    9: {
+      bag: Number,
+      mass: Number
+    },
+    10: {
+      bag: Number,
+      mass: Number
+    },
+    11: {
       bag: Number,
       mass: Number
     }
