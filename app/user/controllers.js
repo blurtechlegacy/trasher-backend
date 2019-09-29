@@ -9,6 +9,9 @@ exports.tryWithJWT = (req, res) => {
     id: req.user.id,
     username: req.user.username,
     role: req.user.role,
+    address: req.user.address,
+    bags: req.user.bags,
+    points: req.user.points
   };
   res.success(payload);
 };

@@ -15,8 +15,6 @@ router.patch('/profile', authenticateMiddleware, controller.editProfile);
 
 router.post('/register', controller.register);
 
-router.get('/exp', authenticateMiddleware, controller.userExperience);
-
 /**
  * Export a router with paths
  * POST: /
