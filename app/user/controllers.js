@@ -105,10 +105,6 @@ exports.register = (req, res) => {
           user: { ...user},
         });
       });
-      return res.success({
-        message: 'Successful created new user',
-        user: { ...user, token: token},
-      });
     }
   );
 };
