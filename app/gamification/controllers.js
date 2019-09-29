@@ -1,11 +1,15 @@
 const repository = require('./repository');
 
-exports.getLitterByCity = (req, res) => {
-
-
+exports.getDataForUser = async (req, res) => {
+  const user = req.user;
+  let data = await repository.getAllInfoReducedByUser(user);
+  return res.success(data);
 };
 
-exports.getCities = async (req, res) => {
-  let cities = await repository.getCities();
-  return res.success(cities);
+exports.getMapReduce = async (req, res) => {
+  const user = req.user;
+  let mr = await repository.mapReduceUser(user);
+  return res.success(mr);
 };
+
+

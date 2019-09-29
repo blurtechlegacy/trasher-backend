@@ -5,6 +5,8 @@ const router = express.Router();
 
 const controller = require('./controllers');
 
-router.get('/cities', authenticateMiddleware, controller.getCities);
+router.get('/', authenticateMiddleware, controller.getDataForUser);
+
+router.get('/mapreduce', authenticateMiddleware, controller.getMapReduce);
 
 module.exports = router;
