@@ -27,7 +27,8 @@ exports.createLS = (req, res) => {
       city: req.body.city,
       region: req.body.region
     },
-    containers: req.body.containers
+    containers: req.body.containers,
+    title: req.body.title
   };
   repository.saveLitterStorage(data, (err, doc) => {
     if (err) {
