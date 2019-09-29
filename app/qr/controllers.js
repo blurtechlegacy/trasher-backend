@@ -14,7 +14,7 @@ exports.createQrBulk = async (req, res) => {
     dataList.push(new qr({
       version: param.version,
       tag: param.tag,
-      count: param.count
+      amount: param.count
     }));
   }
   await repository.saveCodes(dataList, (err, list) => {
@@ -28,16 +28,19 @@ exports.createQrBulk = async (req, res) => {
 exports.scan = async (req, res) => {
   const data =  {
     id: req.body.parcelId,
-    count: req.body.count,
+    amount: req.body.amount,
     tag: req.body.tag
   };
-  let bags = await repository.getBags(data);
-  if (!bags) {
+  console.log(data);
+  let bag = await repository.getBag(data);
+  if (!bag) {
     return res.notFound();
   }
-  req.user.bags += bags.count;
-  await user.save();
-  await repository.expire(bags);
-  return res.success(req.user.bags);
+  console.log(bag);
+  let user = req.user;
+  console.log(user);
+  await userRepository.addBags(user, bag.amount);
+  await repository.expire(bag);
+  return res.success(user.bags);
 };
 

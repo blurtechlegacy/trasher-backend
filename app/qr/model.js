@@ -3,8 +3,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const definition = {
-  id: Schema.ObjectId,
-  count: Number,
+  amount: Number,
   tag: String,
   expired: {
     type: Boolean,

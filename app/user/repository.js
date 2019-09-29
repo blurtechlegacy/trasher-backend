@@ -70,5 +70,10 @@ exports.addExperience = async (user, value, saveCb) => {
   return await user.save(saveCb);
 };
 
+exports.addBags = async (user, value) => {
+  user.bags = Number(value) + Number(user.bags);
+  return await user.save();
+};
+
 exports.selectUserPublicInfo = user =>
   User.findById(user.id).select({ token: 0, password: 0 });

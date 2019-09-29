@@ -14,6 +14,13 @@ exports.createLitter = (req, res) => {
     if (err) {
       return res.validationError(err);
     }
+    let bags = doc.types.reduce( (acc, item) => item.bags + acc, 0);
+    req.user.bags -= bags;
+    if (req.user.bags < 0) {
+      req.user.bags = 0;
+    }
+    req.user.save();
+
     return res.success(doc);
   });
 };

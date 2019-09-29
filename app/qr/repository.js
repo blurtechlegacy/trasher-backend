@@ -1,8 +1,9 @@
 const qr = require('./model');
+const Types = require('mongoose').Types
 
-exports.getBags = (data) => qr.find({_id: data.id, count: data.count, expired: false});
+exports.getBag = (data) => qr.findOne({_id: data.id, expired: false});
 
-exports.expite = (obj) => {
+exports.expire = (obj) => {
   obj.expired = true;
   obj.save();
 };
