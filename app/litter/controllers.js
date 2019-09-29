@@ -16,9 +16,12 @@ exports.createLitter = (req, res) => {
     }
     let bags = doc.types.reduce( (acc, item) => item.bags + acc, 0);
     req.user.bags -= bags;
-    req.user.points += bags*4;
+    //todo логику продумать лучше
     if (req.user.bags < 0) {
       req.user.bags = 0;
+    }
+    if (req.user.bags !== 0) {
+      req.user.points += bags*4;
     }
     req.user.save();
 
