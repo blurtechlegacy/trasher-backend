@@ -98,11 +98,11 @@ exports.register = (req, res) => {
           address: data.address,
           bags: data.bags,
           points: data.points,
-          token: data.token
         };
         return res.success({
           message: 'Successful created new user',
           user: { ...user},
+          token: data.token
         });
       });
     }
