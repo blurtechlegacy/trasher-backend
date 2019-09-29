@@ -89,10 +89,25 @@ exports.register = (req, res) => {
         points: data.points
       };
       let token = jwt.sign(user, secret);
+      data.token = token;
+      data.save((err, data) => {
+        let user = {
+          id: data._id,
+          username: data.username,
+          role: data.role,
+          address: data.address,
+          bags: data.bags,
+          points: data.points,
+          token: data.token
+        };
+        return res.success({
+          message: 'Successful created new user',
+          user: { ...user},
+        });
+      });
       return res.success({
         message: 'Successful created new user',
-        user: { ...user},
-        token: token,
+        user: { ...user, token: token},
       });
     }
   );

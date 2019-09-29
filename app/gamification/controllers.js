@@ -8,8 +8,12 @@ exports.getDataForUser = async (req, res) => {
 
 exports.getMapReduce = async (req, res) => {
   const user = req.user;
-  let mr = await repository.mapReduceUser(user);
-  return res.success(mr);
+  let mr = await repository.mapReduceUser(user)
+    .then((res) => {
+      console.log(res);
+      return res.results
+    })
+    .then((doc) => res.success(doc));
 };
 
 

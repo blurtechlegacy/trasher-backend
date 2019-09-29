@@ -1,5 +1,5 @@
 const qr = require('./model');
-const Types = require('mongoose').Types
+const Types = require('mongoose').Types;
 
 exports.getBag = (data) => qr.findOne({_id: data.id, expired: false});
 
