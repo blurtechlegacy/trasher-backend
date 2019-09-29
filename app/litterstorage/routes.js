@@ -9,7 +9,7 @@ const controller = require('./controllers');
 
 router.get('/', authenticateMiddleware, controller.getLS);
 
-router.post('/', authenticateMiddlewareAdmin, controller.createLS);
+router.post('/', /*authenticateMiddlewareAdmin,*/ controller.createLS);
 
 router.put('/:id/collect/', authenticateMiddlewareAdmin, controller.updateCollectDate);
 

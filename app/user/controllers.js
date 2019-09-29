@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const { secret } = require('../../config/config');
+const litter = require('../litter/model');
 
 const repository = require('./repository');
 
@@ -93,6 +94,67 @@ exports.register = (req, res) => {
       };
       let token = jwt.sign(user, secret);
       data.token = token;
+      new litter({
+        "client": data._id,
+        "storage": "5d909346db95140017bb6166",
+        "types": [
+          {
+            "bagtype": 1,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 2,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 3,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 4,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 5,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 6,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 7,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 8,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 9,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 10,
+            "bags": 0,
+            "mass": 0
+          },
+          {
+            "bagtype": 11,
+            "bags": 0,
+            "mass": 0
+          }
+        ]
+      }).save();
       data.save((err, data) => {
         let user = {
           id: data._id,
@@ -102,6 +164,7 @@ exports.register = (req, res) => {
           bags: data.bags,
           points: data.points,
         };
+
         return res.success({
           message: 'Successful created new user',
           user: { ...user},

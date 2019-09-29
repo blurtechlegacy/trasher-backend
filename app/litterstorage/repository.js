@@ -9,7 +9,12 @@ exports.getLitterStorageForCity = data => LitterStorage.find({'place.city': data
 
 exports.getLitterStorage = () => LitterStorage.find();
 
-exports.getLitterStorageById = data => LitterStorage.find({ id: data.id});
+exports.getLitterStorageById = data => LitterStorage.find({
+  $and: [
+    { id: data.id, },
+    { $ne: {city: "asd"}}
+    ]
+});
 
 exports.updateCollectTimeStamp = (obj, data, saveCb) => {
   obj.lastCollect = data;

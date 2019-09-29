@@ -26,8 +26,7 @@ o = {
       sum += values[i]
     }
     return { total: sum}
-  },
-  resolveToObject: true
+  }
 };
 
 exports.mapReduceUser = (user) => Litter.mapReduce({
