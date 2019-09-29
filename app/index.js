@@ -3,6 +3,7 @@ const litterStorageRouter = require('./litterstorage/routes');
 const litterRouter = require('./litter/routes');
 const littertypeRouter = require('./littertype/routes');
 const qrRouter = require('./qr/routes');
+const statRouter = require('./statistics/routes');
 
 module.exports = app => {
   app.use('/user', userRouter);
@@ -10,6 +11,7 @@ module.exports = app => {
   app.use('/litter', litterRouter);
   app.use('/littertype', littertypeRouter);
   app.use('/qr', qrRouter);
+  app.use('/statistics', statRouter);
 
   app.get('/', (req, res) =>
     res.send({
